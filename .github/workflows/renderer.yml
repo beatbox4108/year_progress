@@ -2,6 +2,7 @@ name: Renderer
 on: 
   schedule:
     - cron: "50 14 * * *"
+  workflow_dispatch:
 jobs:
   Render:
     runs-on: ubuntu-latest
