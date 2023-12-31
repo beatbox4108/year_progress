@@ -19,7 +19,7 @@ jobs:
       - name: Install Sudo Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install libmagickwand-dev libmagickcore5-extra
+          sudo apt-get install libmagickwand-dev
           sudo pip install rich
       - name: Install Dependencies
         run: pip install pyyaml jinja2 rich wand
