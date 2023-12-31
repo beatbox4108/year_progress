@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
+    <defs>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;500;900');
+            text{font-family: 'Rounded Mplus 1c', 'M PLUS Rounded 1c';}
+        </style>
+
+        <linearGradient id="bg-gradient" x1="0" x2="100%" y1="0" y2="100%">
+            <stop offset="20%" stop-color="{{color.bg_primary}}" />
+            <stop offset="80%" stop-color="{{color.bg_secondary}}" />
+        </linearGradient>
+        <linearGradient id="bar-gradient" x1="0" x2="100%" y1="0" y2="0">
+            <stop offset="20%" stop-color="{{color.bar_1}}" />
+            <stop offset="60%" stop-color="{{color.bar_2}}" />
+        </linearGradient>
+        <mask id="bar-mask">
+            <rect x="12.5%" y="0%" width="{{75*progress.complete/100}}%" height="100%" fill="#ffffff" />
+        </mask>
+        <mask id="bar-bg-mask">
+            <rect x="12.5%" y="30%" rx="2.5%" r="2.5%" width="75%" height="15%" fill="#ffffff" />
+        </mask>
+        <mask id="bar-sub-mask">
+            <rect x="12.5%" y="47.5%" width="75%" height="100%" fill="#ffffff" />
+        </mask>
+        <mask id="bar-sub-bg-mask">
+            <rect x="12.5%" y="47.5%" rx="2.5%" r="2.5%" width="75%" height="15%" fill="#ffffff" />
+        </mask>
+    </defs>
+    <rect width="1920" height="1080" fill="url(#bg-gradient)" />
+    <text x="50%" y="20%" font-size="200" font-weight="bolder" text-anchor="middle" fill="{{color.fg_primary}}">
+        {{info.year}}年の進捗
+    </text>
+    <g mask="url(#bar-bg-mask)">
+        <rect x="12.5%" y="30%" rx="2.5%" r="2.5%" width="75%" height="15%" fill="#555555" />
+        <rect x="12.5%" y="0%" width="75%" height="100%" fill="url(#bar-gradient)" mask="url(#bar-mask)" />
+        <text x="15%" y="41.25%" font-size="100" font-weight="bolder" text-anchor="start" fill="{{color.bg_primary}}">
+            {{info.year}} {{progress.complete}}%
+        </text>
+    </g>
+    {% if info.date.value<=5 %}
+    <g mask="url(#bar-sub-bg-mask)">
+        <rect x="12.5%" y="47.5%" rx="2.5%" r="2.5%" width="75%" height="15%" fill="#555555" />
+        <rect x="12.5%" y="0%" width="75%" height="100%" fill="url(#bar-gradient)" mask="url(#bar-sub-mask)" />
+        <text x="15%" y="58.25%" font-size="100" font-weight="bolder" text-anchor="start" fill="{{color.bg_primary}}">
+            {{info.year-1}} 100%
+        </text>
+    </g>
+    {% endif %}
+    <g>
+        <text x="50%" y="75%" font-size="100" text-anchor="middle" fill="{{color.fg_primary}}">
+            {{progress.complete}}%完了、残り{{progress.remain}}%
+        </text>
+        <text x="50%" y="85%" font-size="70" text-anchor="middle" fill="{{color.fg_secondary}}">
+            {{info.week.value}}/{{info.week.total}}週、{{info.date.value}}/{{info.date.total}}日
+        </text>
+    </g>
+    <g>
+        <text x="95%" y="95%" text-anchor="end" font-size="40" font-weight="normal" fill="{{color.fg_primary}}">
+            最終更新: {{info.date.string}}
+        </text>
+        <text x="5%" y="95%" text-anchor="start" font-size="40" font-weight="normal" fill="{{color.fg_primary}}">
+            https://beatbox4108.github.io/year_progress/
+        </text>
+    </g>
+</svg>

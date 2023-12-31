@@ -1,0 +1,9 @@
+# Color is from https://www.canva.com/colors/color-palettes/raspberry-parfait/
+#               https://www.canva.com/colors/color-palettes/morning-dew/
+color:
+  bg_primary  : "#DDFFE7" # Mint
+  bg_secondary: "#98D7C2" # Spearmint
+  fg_primary  : "#167D7F" # Teal Green
+  fg_secondary: "#29A0B1" # Teal
+  bar_1       : "#05A63A" # Lime Green
+  bar_2       : "#A1F7A1" # Neon Green
