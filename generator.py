@@ -43,8 +43,8 @@ with open(Path(__file__).parent/"config.yml","r",encoding="utf-8")as f:
 
 with open(Path(__file__).parent/"progress.svg.j2","r",encoding="utf-8")as f:
     template=jinja2.Template(f.read())
-with open(Path(__file__).parent/"pub"/"progress.svg","w",encoding="utf-8")as f:
+with open(Path(__file__).parent/"progress.svg","w",encoding="utf-8")as f:
     svg=template.render(**config,**data)
     f.write(svg)
-with open(Path(__file__).parent/"pub"/"progress.png","bw")as f:
+with open(Path(__file__).parent/"progress.png","bw")as f:
     wand.image.Image(blob=svg.encode("UTF-8"),format="SVG").convert("PNG").save(f)
