@@ -18,7 +18,8 @@ jobs:
           architecture: 'x64'
       - name: Install Sudo Dependencies
         run: |
-          sudo apt install libmagickwand-dev libmagickcore5-extra
+          sudo apt-get update
+          sudo apt-get install libmagickwand-dev libmagickcore5-extra
           sudo pip install rich
       - name: Install Dependencies
         run: pip install pyyaml jinja2 rich wand
